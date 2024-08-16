@@ -19,106 +19,102 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .bg-light-blue {
-            background-color: #ADD8E6; /* Light blue color */
+        /* Styling khusus untuk sidebar */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
         }
-        .foto-img {
-            max-width: 150px; /* Adjust size as needed */
-            height: auto;
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            background-color: #343a40;
+            padding-top: 20px;
+            transition: all 0.3s;
         }
-        .full-height {
-            height: 100vh; /* Full viewport height */
+
+        .sidebar h4 {
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
         }
-        .header-padding {
-            padding: 0 15px; /* Padding for header to align with content */
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
         }
-        .center-container {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 1200px; /* Maximum width for container */
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .sidebar .nav-link.active {
+            background-color: #495057;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
-<body class="bg-light">
-    <div class="bg-light-blue text-dark py-3 header-padding"> <!-- Persegi panjang full-width di bagian atas -->
-        <div class="container">
-            <nav class="nav">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </nav>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row min-vh-100">
-            <!-- Main Content -->
-            <div class="col-md-12 py-4">
-                <div class="center-container">
-                    <h2 class="mb-4 text-center">Data Absensi Siswa</h2>
-                    <a href="create.php" class="btn btn-primary ">Tambah Absensi</a><br>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nama Siswa</th>
-                                    <th>Tanggal</th>
-                                    <th>Status</th>
-                                    <th>Foto</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if ($result->num_rows > 0): ?>
-                                    <?php while ($row = $result->fetch_assoc()): ?>
-                                        <tr>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['nama_siswa']; ?></td>
-                                            <td><?php echo $row['tanggal']; ?></td>
-                                            <td><?php echo $row['status']; ?></td>
-                                            <td>
-                                                <?php if (!empty($row['foto'])): ?>
-                                                    <img src="<?php echo $row['foto']; ?>" class="foto-img" alt="Foto Absensi" width="50">
-                                                <?php else: ?>
-                                                    Tidak ada foto
-                                                <?php endif; ?>
-                                            </td>
-                                            <td>
-                                                <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">
-                                                    <i class="bi bi-pencil"></i>
-                                                </a>
-                                                <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Anda yakin ingin menghapus data ini?');">
-                                                    <i class="bi bi-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                <?php else: ?>
-                                    <tr>
-                                        <td colspan="6" class="text-center">Tidak ada data.</td>
-                                    </tr>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<body>
+    <div class="sidebar">
+        <h4>Dashboard</h4>
+        <a href="#" class="nav-link active"><i class="bi bi-house"></i> Home</a>
+        <a href="#" class="nav-link"><i class="bi bi-people"></i> Data Siswa</a>
+        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Rekap Absensi</a>
+        <a href="#" class="nav-link"><i class="bi bi-file-earmark-pdf"></i> Laporan PDF</a>
+        <a href="#" class="nav-link"><i class="bi bi-gear"></i> Pengaturan</a>
+        <a href="#" class="nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="content">
+        <h2>Selamat Datang di Dashboard</h2>
+        <p>Konten utama ditampilkan di sini.</p>
+    </div>
+
+    <!-- Bootstrap JS dan dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </body>
+
 </html>
+
 
 <?php
 $conn->close();
