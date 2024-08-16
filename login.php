@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === $valid_username && $password === $valid_password) {
         // Set sesi atau cookies jika perlu
         // Redirect ke halaman berikutnya
-        header('Location: dashboard.php');
+        header('Location: data siswa.php');
         exit();
     } else {
         $error_message = "Username atau password salah.";
