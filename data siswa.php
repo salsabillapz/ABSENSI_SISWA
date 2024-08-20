@@ -113,7 +113,7 @@ $result = $conn->query($sql);
         <ul>
             <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fas fa-users"></i> Daftar Siswa</a></li>
-            <li><a href="#"><i class="fas fa-clipboard-list"></i> Absensi</a></li>
+            <li><a href="absensi.php"><i class="fas fa-clipboard-list"></i> Absensi</a></li>
             <li><a href="#"><i class="fas fa-file-alt"></i> Rekap Absensi</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
         </ul>
@@ -124,62 +124,6 @@ $result = $conn->query($sql);
         <p>Silakan pilih menu di samping untuk melanjutkan aktivitas Anda.</p>
     </div>
 
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="mb-4 text-center">Data Absensi Siswa</h2>
-                    <a href="create.php" class="btn btn-primary mb-3">Tambah Absensi</a>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nama Siswa</th>
-                                    <th>Tanggal</th>
-                                    <th>Status</th>
-                                    <th>Foto</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if ($result->num_rows > 0): ?>
-                                    <?php while ($row = $result->fetch_assoc()): ?>
-                                        <tr>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['nama_siswa']; ?></td>
-                                            <td><?php echo $row['tanggal']; ?></td>
-                                            <td><?php echo $row['status']; ?></td>
-                                            <td>
-                                                <?php if (!empty($row['foto'])): ?>
-                                                    <img src="<?php echo $row['foto']; ?>" class="foto-img" alt="Foto Absensi" width="50">
-                                                <?php else: ?>
-                                                    Tidak ada foto
-                                                <?php endif; ?>
-                                            </td>
-                                            <td>
-                                                <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">
-                                                    <i class="bi bi-pencil"></i>
-                                                </a>
-                                                <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Anda yakin ingin menghapus data ini?');">
-                                                    <i class="bi bi-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                <?php else: ?>
-                                    <tr>
-                                        <td colspan="6" class="text-center">Tidak ada data.</td>
-                                    </tr>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Bootstrap JS dan dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap Icons -->
