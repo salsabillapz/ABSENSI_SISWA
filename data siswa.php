@@ -23,82 +23,105 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Absensi Siswa - Side Menu</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Sidebar Styles */
         .sidebar {
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
             width: 250px;
-            background-color: #343a40;
-            padding-top: 20px;
+            background-color: #1d3557;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
             transition: all 0.3s;
         }
 
-        .sidebar h4 {
-            padding: 15px;
+        .sidebar h2 {
+            color: #fff;
             text-align: center;
-            color: white;
-            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 24px;
+            border-bottom: 2px solid #457b9d;
+            padding-bottom: 10px;
         }
 
-        .sidebar a {
-            color: white;
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
             text-decoration: none;
-            padding: 12px 20px;
+            font-size: 18px;
+            color: #f1faee;
+            padding: 10px 15px;
             display: flex;
             align-items: center;
-            transition: background-color 0.3s;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .sidebar a:hover {
-            background-color: #495057;
+        .sidebar ul li a:hover {
+            background-color: #457b9d;
+            transform: translateX(10px);
         }
 
-        .sidebar a i {
+        .sidebar ul li a i {
             margin-right: 10px;
         }
 
-        .sidebar .nav-link.active {
-            background-color: #495057;
-        }
-
-        .content {
+        /* Main Content Styles */
+        .main-content {
             margin-left: 250px;
             padding: 20px;
+            width: calc(100% - 250px);
         }
 
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1d3557;
+        }
 
-            .content {
-                margin-left: 0;
-            }
+        .main-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
         }
     </style>
 </head>
 
 <body>
     <div class="sidebar">
-        <h4>Dashboard</h4>
-        <a href="#" class="nav-link active"><i class="bi bi-house"></i> Home</a>
-        <a href="#" class="nav-link"><i class="bi bi-people"></i> Data Siswa</a>
-        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Rekap Absensi</a>
-        <a href="#" class="nav-link"><i class="bi bi-file-earmark-pdf"></i> Laporan PDF</a>
-        <a href="#" class="nav-link"><i class="bi bi-gear"></i> Pengaturan</a>
-        <a href="#" class="nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        <h2>Absensi Siswa</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Daftar Siswa</a></li>
+            <li><a href="#"><i class="fas fa-clipboard-list"></i> Absensi</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Rekap Absensi</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Selamat datang di Absensi Siswa</h1>
+        <p>Silakan pilih menu di samping untuk melanjutkan aktivitas Anda.</p>
     </div>
 
     <div class="content">
