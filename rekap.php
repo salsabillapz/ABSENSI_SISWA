@@ -122,19 +122,32 @@ $result = $connection->query($query);
 </head>
 
 <body>
-    <!-- Sidebar -->
     <div class="sidebar">
-        <h2>Side Menu</h2>
+        <h2>Absensi Siswa</h2>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="dashboard.php"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fas fa-users"></i> Daftar Siswa</a></li>
-            <li><a href="#"><i class="fas fa-check"></i> Absensi</a></li>
-            <li><a href="#"><i class="fas fa-clipboard-list"></i> Rekap Absensi</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            <li><a href="absensi.php"><i class="fas fa-clipboard-list"></i> Absensi</a></li>
+            <li><a href="rekap.php"><i class="fas fa-file-alt"></i> Rekap Absensi</a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
         </ul>
     </div>
+
+
     <!-- Content -->
-    <div class="content">
+    <div class="main-content">
+        <h2>Rekap Absensi Siswa</h2>
+        <form method="GET" action="">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="filterKelas" class="form-label">Filter Kelas</label>
+                    <select class="form-select" id="filterKelas" name="kelas">
+                        <option selected>Semua Kelas</option>
+                        <option value="X">X</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option>
+                    </select>
+                </div>
                 <div class="col-md-4">
                     <label for="filterTanggal" class="form-label">Filter Tanggal</label>
                     <input type="date" class="form-control" id="filterTanggal" name="tanggal">
@@ -160,7 +173,6 @@ $result = $connection->query($query);
                     <tr>
                         <th>No</th>
                         <th>Nama Siswa</th>
-                        <th>Kelas</th>
                         <th>Tanggal</th>
                         <th>Status</th>
                     </tr>
