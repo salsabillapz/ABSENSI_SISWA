@@ -140,15 +140,6 @@ $result = $connection->query($query);
         <form method="GET" action="">
             <div class="row mb-3">
                 <div class="col-md-4">
-                    <label for="filterKelas" class="form-label">Filter Kelas</label>
-                    <select class="form-select" id="filterKelas" name="kelas">
-                        <option selected>Semua Kelas</option>
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
                     <label for="filterTanggal" class="form-label">Filter Tanggal</label>
                     <input type="date" class="form-control" id="filterTanggal" name="tanggal">
                 </div>
