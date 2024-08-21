@@ -118,6 +118,25 @@ $result = $connection->query($query);
             line-height: 1.6;
             color: #333;
         }
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            width: 250px;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .table-responsive {
+            max-height: 400px;
+            overflow-y: auto;
     </style>
 </head>
 <body>
