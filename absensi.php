@@ -99,7 +99,7 @@ $result = $conn->query($sql);
             <li><a href="dashboard.php"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fas fa-users"></i> Daftar Siswa</a></li>
             <li><a href="absensi.php"><i class="fas fa-clipboard-list"></i> Absensi</a></li>
-            <li><a href="#"><i class="fas fa-file-alt"></i> Rekap Absensi</a></li>
+            <li><a href="rekap.php"><i class="fas fa-file-alt"></i> Rekap Absensi</a></li>
             <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
         </ul>
     </div>
