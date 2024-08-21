@@ -118,36 +118,19 @@ $result = $connection->query($query);
             line-height: 1.6;
             color: #333;
         }
-
-        .sidebar {
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            width: 250px;
-        }
-
-        .content {
-            margin-left: 270px;
-            padding: 20px;
-        }
-
-        .table-responsive {
-            max-height: 400px;
-            overflow-y: auto;
     </style>
 </head>
+
 <body>
-<div class="sidebar">
-        <h2>Absensi Siswa</h2>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Side Menu</h2>
         <ul>
-            <li><a href="dashboard.php"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fas fa-users"></i> Daftar Siswa</a></li>
-            <li><a href="absensi.php"><i class="fas fa-clipboard-list"></i> Absensi</a></li>
-            <li><a href="rekap.php"><i class="fas fa-file-alt"></i> Rekap Absensi</a></li>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            <li><a href="#"><i class="fas fa-check"></i> Absensi</a></li>
+            <li><a href="#"><i class="fas fa-clipboard-list"></i> Rekap Absensi</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
         </ul>
     </div>
     <!-- Content -->
