@@ -105,20 +105,25 @@ $result = $conn->query($sql);
     </div>
 
     <div class="main-content">
-        <h2>Data Absensi Siswa</h2>
-        <a href="create.php" class="btn btn-primary mb-3">Tambah Absensi</a>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nama Siswa</th>
-                        <th>Tanggal</th>
-                        <th>Status</th>
-                        <th>Foto</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+        <div class="card-absensi">
+            <div class="card-header">Absensi Siswa</div>
+            <form>
+                <!-- Input Nama -->
+                <div class="form-group mt-4">
+                    <label for="nama">Nama Siswa</label>
+                    <input type="text" class="form-control" id="nama" placeholder="Masukkan nama siswa">
+                </div>
+
+                <!-- Input Kelas -->
+                <div class="form-group">
+                    <label for="kelas">Kelas</label>
+                    <select class="form-control" id="kelas">
+                        <option>XII RPL 1</option>
+                        <option>XII RPL 2</option>
+                        <option>XII TKJ 1</option>
+                        <!-- Tambahkan opsi kelas lainnya -->
+                    </select>
+                </div>
                 <tbody>
                     <?php if ($result->num_rows > 0): ?>
                         <?php while ($row = $result->fetch_assoc()): ?>
